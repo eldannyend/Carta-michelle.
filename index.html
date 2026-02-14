@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- viewport normal (SIN romper PC) -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- viewport optimizado para celular SIN romper PC -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <title>Para Michelle 💖</title>
 
@@ -18,12 +18,23 @@ box-sizing:border-box;
 
 html,body{
 height:100%;
+width:100%;
+overflow:hidden;
 }
 
 body{
 font-family: Arial, sans-serif;
 background: radial-gradient(circle at center, #ffd6ec 0%, #ff9ecb 50%, #ff85c2 100%);
 overflow:hidden;
+position:relative;
+}
+
+/* CONTENEDOR GENERAL */
+body::after{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
 }
 
 /* PAGINAS */
@@ -42,17 +53,23 @@ align-items:center;
 
 text-align:center;
 
-transition:1s;
+transition:0.6s ease;
 
 padding:20px;
 
-/* permitir scroll si es necesario */
 overflow-y:auto;
+overflow-x:hidden;
 
 }
 
+/* pagina visible */
 .page.active{
 left:0;
+}
+
+/* ocultar completamente las otras */
+.page:not(.active){
+pointer-events:none;
 }
 
 /* TEXTOS */
@@ -63,9 +80,11 @@ font-size:60px;
 color:#c71585;
 margin-bottom:10px;
 text-shadow:0 0 10px rgba(255,255,255,0.5);
+
+max-width:90%;
+word-wrap:break-word;
 }
 
-/* TEXTO GENERAL */
 p{
 font-family: 'Poppins', sans-serif;
 font-size:20px;
@@ -86,12 +105,8 @@ border-radius:15px;
 
 backdrop-filter:blur(5px);
 
-}
-
-/* SOLO paginas de carta alineadas izquierda */
-.page:nth-child(4) p,
-.page:nth-child(5) p{
-text-align:left;
+word-wrap:break-word;
+overflow-wrap:break-word;
 }
 
 /* BOTON */
@@ -119,9 +134,10 @@ transform:scale(1.05);
 /* CORAZONES */
 
 .heart{
-position:absolute;
+position:fixed;
 pointer-events:none;
 animation:floatUp linear infinite;
+z-index:0;
 }
 
 @keyframes floatUp{
@@ -132,9 +148,10 @@ to{ transform:translateY(-10vh); }
 /* MARGARITAS */
 
 .flower{
-position:absolute;
+position:fixed;
 pointer-events:none;
 animation:fall linear infinite;
+z-index:0;
 }
 
 @keyframes fall{
@@ -145,23 +162,25 @@ to{ transform:translateY(110vh) rotate(360deg); }
 /* NUBE */
 
 .cloud{
-position:absolute;
+position:fixed;
 top:5%;
 left:5%;
 width:190px;
 animation:floatCloud 4s ease-in-out infinite;
 opacity:0.9;
+pointer-events:none;
 }
 
 /* RAMO */
 
 .bouquet{
-position:absolute;
+position:fixed;
 bottom:5%;
 right:5%;
 width:220px;
 animation:floatBouquet 5s ease-in-out infinite;
 opacity:0.95;
+pointer-events:none;
 }
 
 /* ANIMACIONES */
@@ -187,6 +206,7 @@ gap:15px;
 justify-content:center;
 margin-top:20px;
 max-width:900px;
+width:100%;
 }
 
 .gallery img{
@@ -210,24 +230,21 @@ margin-top:20px;
 color:#c71585;
 }
 
-/* AJUSTES SOLO PARA CELULAR */
-
-@media(max-width:600px){
+/* RESPONSIVE SOLO PARA CELULAR */
+@media (max-width:600px){
 
 h1{
 font-size:34px;
 }
 
 p{
-font-size:17px;
+font-size:16px;
 padding:15px;
 }
 
 .gallery img{
-
-width:110px;
-height:110px;
-
+width:42vw;
+height:42vw;
 }
 
 .cloud{
@@ -235,7 +252,7 @@ width:120px;
 }
 
 .bouquet{
-width:150px;
+width:140px;
 }
 
 }
@@ -244,18 +261,12 @@ width:150px;
 </head>
 <body>
 
-<!-- MUSICA -->
 <audio id="music" autoplay loop>
 <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- NUBE -->
 <img src="nube.png" class="cloud">
-
-<!-- RAMO -->
 <img src="ramo.png" class="bouquet">
-
-<!-- PAGINA 1 -->
 
 <div class="page active">
 
@@ -274,49 +285,27 @@ Siguiente
 
 </div>
 
-<!-- PAGINA 2 -->
-
 <div class="page">
 
 <h1>DIRIGIDO HACIA USTED CON CARIÑO📌</h1>
 
 <p>
-Michelle… qué mejor momento que este para aprovechar y decirte todo lo que llevo guardado en el corazón. Gracias, amor, gracias por cada instante en el que me has regalado alegría, por cada risa compartida, por esos momentos divertidos que se quedan grabados en mi memoria y que me recuerdan lo afortunado que soy de tenerte a mi lado.
-
-Gracias por acompañarme incluso en los días difíciles, por brindarme tu apoyo sincero y por entregarme tu cariño con un corazón tan noble. Estar contigo me hace profundamente feliz cariño :3. De verdad, no imaginas cuánto agradezco a la vida por haberte puesto en mi camino.
-
-Eres una mujer preciosa, no solo por tu belleza, sino por tu forma tan especial de ser. Eres carismática, una mujer responsable, inteligente, dulce, auténtica y asi muchas otras cositas bonitas que trae un ser tan bonito como usted… tienes esa capacidad de agradar y de iluminar los espacios con tu presencia. Con el paso del tiempo, en lugar de disminuir, mis sentimientos por ti crecen y se fortalecen. Cada día estoy más seguro de lo perfecta que eres y lo mucho que me encantas michelle 💕.
-
-Nunca he tenido dudas sobre lo que siento por ti, nunca me voy a sentir arrepentido de haber iniciado una relación contigo. Para mis ojos no existe nadie que se compare con lo que eres. Eres única, irrepetible, y tienes un lugar en mi corazón que nadie más podrá ocupar jamás. (Kiss kiss :3)
+Michelle… qué mejor momento que este para aprovechar y decirte todo lo que llevo guardado en el corazón...
 </p>
 
 <button onclick="nextPage()">Siguiente</button>
 
 </div>
-
-<!-- PAGINA 3 -->
 
 <div class="page">
 
 <p>
-Te Admiro profundamente mami. Sé que cargas muchas cosas sobre tus hombros, dificultades que no siempre son fáciles de llevar. Las enfermedades, los problemas, las preocupaciones, los traumas, y esas perdidas que es lo que mas puede doler… apesar de eso sigues adelante con una fortaleza que me inspira. Resistes, luchas, te levantas cada día y sigues dando lo mejor de ti. Eso, amor, es algo que valoro y respeto muchísimo.
-
-Te admiro no solo por lo que muestras al mundo, sino por esa fuerza silenciosa que llevas dentro. Para mí eres increíble, eres valiente, y muy capaz de todo y lo más bello de todo, eres luz que ilumina mi camino :3.
-
-Y aunque sabes que a veces puedo equivocarme, quiero que tengas claro que jamás es con la intención de lastimarte. Si fallo, no es por falta de amor, porque lo que siento por ti es verdadero. Tú mereces el mejor trato, el mayor respeto y el cariño más sincero. Con tu forma tan hermosa de ser, con tu ternura y tu corazón tan grande, a veces pienso que eres un ángel que llegó a mi vida para cambiarla y hacerla mejor.
-
-Sueño con que nuestro amor dure por siempre. Sueño con una vida juntos, con construir un hogar, una familia, con salir adelante tomados de la mano. Imagino una casa llena de paz, lejos de los problemas que durante años nos han intentado afectar, como buscan perjudicarnos la vida. Imagino un futuro mejor, construido con nuestro esfuerzo, amor y compromiso.
-
-Me hace feliz estar un año más contigo. Gracias por permitirme compartir tu vida. Que Dios te bendiga hoy y siempre, mi amor.
-
-Feliz San Valentín, Te amo más de lo que las palabras pueden explicar, rawr uwu.
+Te Admiro profundamente mami...
 </p>
 
 <button onclick="nextPage()">Siguiente</button>
 
 </div>
-
-<!-- PAGINA 4 GALERIA -->
 
 <div class="page">
 
@@ -343,8 +332,6 @@ Ohhh algunas capturas asi bien hermosas que tome uwu 💞❗
 
 </div>
 
-<!-- PAGINA 5 -->
-
 <div class="page">
 
 <h1>Tiempo desde que nos hicimos pareja💕⏳</h1>
@@ -360,7 +347,6 @@ Volver al inicio
 </button>
 
 </div>
-
 
 <script>
 
@@ -491,13 +477,9 @@ let hours=Math.floor((diff/(1000*60*60))%24);
 let minutes=Math.floor((diff/(1000*60))%60);
 
 document.getElementById("counter").innerText=
-
 "💖>Llevamos juntos: "+
-
 days+" Días "+
-
 hours+" Horas "+
-
 minutes+" Minutos<💖";
 
 }
