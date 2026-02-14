@@ -17,10 +17,9 @@ box-sizing:border-box;
 html,body{
 height:100%;
 overflow:hidden;
-}
-
-body{
 font-family: Arial, sans-serif;
+
+/* FONDO TAMBIEN EN HTML PARA EVITAR BLANCO */
 background: radial-gradient(circle at center, #ffd6ec 0%, #ff9ecb 50%, #ff85c2 100%);
 }
 
@@ -37,8 +36,14 @@ flex-direction:column;
 align-items:center;
 transition:0.8s;
 padding:20px;
+
 overflow-y:auto;
 overflow-x:hidden;
+
+/* SCROLL SUAVE EN CELULAR */
+-webkit-overflow-scrolling: touch;
+
+background: transparent;
 }
 
 .page.active{
@@ -88,7 +93,6 @@ text-align:center;
 /* BOTON */
 
 button{
-font-family: Arial, sans-serif;
 margin-top:25px;
 padding:12px 28px;
 border:none;
@@ -119,7 +123,7 @@ from{ transform:translateY(100vh); }
 to{ transform:translateY(-10vh); }
 }
 
-/* MARGARITAS */
+/* FLORES */
 
 .flower{
 position:absolute;
@@ -205,8 +209,9 @@ text-align:center;
 <img src="nube.png" class="cloud">
 <img src="ramo.png" class="bouquet">
 
-<!-- PAGINA 1 -->
+<!-- PAGINAS (SIN CAMBIAR TU TEXTO) -->
 
+<!-- PAGINA 1 -->
 <div class="page active centered">
 
 <h1>💕 HELLO MICHELLE 💕</h1>
@@ -224,8 +229,7 @@ Siguiente
 
 </div>
 
-<!-- PAGINA 2 (TEXTO COMPLETO ORIGINAL) -->
-
+<!-- PAGINA 2 -->
 <div class="page">
 
 <h1>DIRIGIDO HACIA USTED CON CARIÑO📌</h1>
@@ -250,8 +254,7 @@ Nunca he tenido dudas sobre lo que siento por ti, nunca me voy a sentir arrepent
 
 </div>
 
-<!-- PAGINA 3 (TEXTO COMPLETO ORIGINAL) -->
-
+<!-- PAGINA 3 -->
 <div class="page">
 
 <p>
@@ -268,13 +271,11 @@ Me hace feliz estar un año más contigo. Gracias por permitirme compartir tu vi
 
 Feliz San Valentín, Te amo más de lo que las palabras pueden explicar, rawr uwu.
 </p>
-
 <button onclick="nextPage()">Siguiente</button>
 
 </div>
 
 <!-- GALERIA -->
-
 <div class="page">
 
 <h1>Nuestros recuerdos :3 📸</h1>
@@ -282,6 +283,7 @@ Feliz San Valentín, Te amo más de lo que las palabras pueden explicar, rawr uw
 <p style="text-align:center;">
 Ohhh algunas capturas asi bien hermosas que tome uwu 💞❗
 </p>
+
 
 <div class="gallery">
 <img src="fotos/foto1.png">
@@ -299,22 +301,26 @@ Ohhh algunas capturas asi bien hermosas que tome uwu 💞❗
 </div>
 
 <!-- CONTADOR -->
-
 <div class="page centered">
 
 <h1>Tiempo desde que nos hicimos pareja💕⏳</h1>
 
 <p style="text-align:center;">Desde el 23 de mayo del 2025 a las 6:00 PM</p>
 
-<div class="counter" id="counter">
-Cargando...
-</div>
+<div class="counter" id="counter"></div>
 
 <button onclick="restart()">Volver al inicio</button>
 
 </div>
 
 <script>
+
+/* DETECTAR CELULAR */
+let isMobile = window.innerWidth <= 768;
+
+/* CANTIDAD SEGUN DISPOSITIVO */
+let HEART_COUNT = isMobile ? 25 : 60;
+let FLOWER_COUNT = isMobile ? 18 : 40;
 
 let currentPage=0;
 let pages=document.querySelectorAll(".page");
@@ -341,51 +347,78 @@ function restart(){
 pages[currentPage].classList.remove("active");
 currentPage=0;
 pages[currentPage].classList.add("active");
+
 removeFlowers();
 createHearts();
 }
 
+/* CREAR CORAZONES */
+
 function createHearts(){
-for(let i=0;i<60;i++){
+
+for(let i=0;i<HEART_COUNT;i++){
+
 let img=document.createElement("img");
+
 img.src="corazon.png";
 img.className="heart";
+
 let size=Math.random()*60+20;
+
 img.style.width=size+"px";
 img.style.left=Math.random()*100+"vw";
 img.style.animationDuration=(Math.random()*2+2)+"s";
+
 document.body.appendChild(img);
 hearts.push(img);
+
 }
 }
+
+/* REMOVER CORAZONES */
 
 function removeHearts(){
 hearts.forEach(h=>h.remove());
 hearts=[];
 }
 
+/* CREAR FLORES */
+
 function createFlowers(){
-for(let i=0;i<40;i++){
+
+for(let i=0;i<FLOWER_COUNT;i++){
+
 let img=document.createElement("img");
+
 img.src="margarita.png";
 img.className="flower";
+
 let size=Math.random()*60+30;
+
 img.style.width=size+"px";
 img.style.left=Math.random()*100+"vw";
 img.style.animationDuration=(Math.random()*3+3)+"s";
+
 document.body.appendChild(img);
 flowers.push(img);
+
 }
 }
+
+/* REMOVER FLORES */
 
 function removeFlowers(){
 flowers.forEach(f=>f.remove());
 flowers=[];
 }
 
+/* CONTADOR */
+
 function updateCounter(){
+
 let startDate=new Date("2025-05-23T18:00:00");
 let now=new Date();
+
 let diff=now-startDate;
 
 let days=Math.floor(diff/(1000*60*60*24));
@@ -397,10 +430,12 @@ document.getElementById("counter").innerText=
 days+" Días "+
 hours+" Horas "+
 minutes+" Minutos<💖";
+
 }
 
 setInterval(updateCounter,1000);
 updateCounter();
+
 createHearts();
 
 </script>
