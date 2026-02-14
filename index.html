@@ -1,0 +1,514 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+
+<!-- viewport normal (SIN romper PC) -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Michelle 💖</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html,body{
+height:100%;
+}
+
+body{
+font-family: Arial, sans-serif;
+background: radial-gradient(circle at center, #ffd6ec 0%, #ff9ecb 50%, #ff85c2 100%);
+overflow:hidden;
+}
+
+/* PAGINAS */
+
+.page{
+position:absolute;
+width:100%;
+height:100%;
+left:100%;
+top:0;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+transition:1s;
+
+padding:20px;
+
+/* permitir scroll si es necesario */
+overflow-y:auto;
+
+}
+
+.page.active{
+left:0;
+}
+
+/* TEXTOS */
+
+h1{
+font-family: 'Great Vibes', cursive;
+font-size:60px;
+color:#c71585;
+margin-bottom:10px;
+text-shadow:0 0 10px rgba(255,255,255,0.5);
+}
+
+/* TEXTO GENERAL */
+p{
+font-family: 'Poppins', sans-serif;
+font-size:20px;
+color:#5a0033;
+
+max-width:700px;
+width:90%;
+
+margin-top:15px;
+
+line-height:1.8;
+
+background:rgba(255,255,255,0.25);
+
+padding:20px;
+
+border-radius:15px;
+
+backdrop-filter:blur(5px);
+
+}
+
+/* SOLO paginas de carta alineadas izquierda */
+.page:nth-child(4) p,
+.page:nth-child(5) p{
+text-align:left;
+}
+
+/* BOTON */
+
+button{
+
+font-family:'Poppins',sans-serif;
+margin-top:25px;
+padding:12px 28px;
+border:none;
+border-radius:25px;
+background:linear-gradient(45deg,#ff4fa3,#ff85c2);
+color:white;
+font-size:17px;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+/* CORAZONES */
+
+.heart{
+position:absolute;
+pointer-events:none;
+animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+from{ transform:translateY(100vh); }
+to{ transform:translateY(-10vh); }
+}
+
+/* MARGARITAS */
+
+.flower{
+position:absolute;
+pointer-events:none;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+from{ transform:translateY(-10vh) rotate(0deg); }
+to{ transform:translateY(110vh) rotate(360deg); }
+}
+
+/* NUBE */
+
+.cloud{
+position:absolute;
+top:5%;
+left:5%;
+width:190px;
+animation:floatCloud 4s ease-in-out infinite;
+opacity:0.9;
+}
+
+/* RAMO */
+
+.bouquet{
+position:absolute;
+bottom:5%;
+right:5%;
+width:220px;
+animation:floatBouquet 5s ease-in-out infinite;
+opacity:0.95;
+}
+
+/* ANIMACIONES */
+
+@keyframes floatCloud{
+0%{ transform:translateY(0px); }
+50%{ transform:translateY(-20px); }
+100%{ transform:translateY(0px); }
+}
+
+@keyframes floatBouquet{
+0%{ transform:translateY(0px); }
+50%{ transform:translateY(-15px); }
+100%{ transform:translateY(0px); }
+}
+
+/* GALERIA */
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+justify-content:center;
+margin-top:20px;
+max-width:900px;
+}
+
+.gallery img{
+
+width:150px;
+height:150px;
+
+object-fit:cover;
+
+border-radius:15px;
+
+box-shadow:0 0 15px rgba(0,0,0,0.3);
+
+}
+
+/* CONTADOR */
+
+.counter{
+font-size:28px;
+margin-top:20px;
+color:#c71585;
+}
+
+/* AJUSTES SOLO PARA CELULAR */
+
+@media(max-width:600px){
+
+h1{
+font-size:34px;
+}
+
+p{
+font-size:17px;
+padding:15px;
+}
+
+.gallery img{
+
+width:110px;
+height:110px;
+
+}
+
+.cloud{
+width:120px;
+}
+
+.bouquet{
+width:150px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- MUSICA -->
+<audio id="music" autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- NUBE -->
+<img src="nube.png" class="cloud">
+
+<!-- RAMO -->
+<img src="ramo.png" class="bouquet">
+
+<!-- PAGINA 1 -->
+
+<div class="page active">
+
+<h1>💕 HELLO MICHELLE 💕</h1>
+
+<p style="text-align:center;">
+Esta es una pequeña carta que le hice con mucho amor
+para que sepas lo importante y valiosa que eres para mi.💌
+<br><br>
+-(Te convertiste en mi lugar favorito)- 🌹
+</p>
+
+<button onclick="nextPage(); playMusic();">
+Siguiente
+</button>
+
+</div>
+
+<!-- PAGINA 2 -->
+
+<div class="page">
+
+<h1>DIRIGIDO HACIA USTED CON CARIÑO📌</h1>
+
+<p>
+Michelle… qué mejor momento que este para aprovechar y decirte todo lo que llevo guardado en el corazón. Gracias, amor, gracias por cada instante en el que me has regalado alegría, por cada risa compartida, por esos momentos divertidos que se quedan grabados en mi memoria y que me recuerdan lo afortunado que soy de tenerte a mi lado.
+
+Gracias por acompañarme incluso en los días difíciles, por brindarme tu apoyo sincero y por entregarme tu cariño con un corazón tan noble. Estar contigo me hace profundamente feliz cariño :3. De verdad, no imaginas cuánto agradezco a la vida por haberte puesto en mi camino.
+
+Eres una mujer preciosa, no solo por tu belleza, sino por tu forma tan especial de ser. Eres carismática, una mujer responsable, inteligente, dulce, auténtica y asi muchas otras cositas bonitas que trae un ser tan bonito como usted… tienes esa capacidad de agradar y de iluminar los espacios con tu presencia. Con el paso del tiempo, en lugar de disminuir, mis sentimientos por ti crecen y se fortalecen. Cada día estoy más seguro de lo perfecta que eres y lo mucho que me encantas michelle 💕.
+
+Nunca he tenido dudas sobre lo que siento por ti, nunca me voy a sentir arrepentido de haber iniciado una relación contigo. Para mis ojos no existe nadie que se compare con lo que eres. Eres única, irrepetible, y tienes un lugar en mi corazón que nadie más podrá ocupar jamás. (Kiss kiss :3)
+</p>
+
+<button onclick="nextPage()">Siguiente</button>
+
+</div>
+
+<!-- PAGINA 3 -->
+
+<div class="page">
+
+<p>
+Te Admiro profundamente mami. Sé que cargas muchas cosas sobre tus hombros, dificultades que no siempre son fáciles de llevar. Las enfermedades, los problemas, las preocupaciones, los traumas, y esas perdidas que es lo que mas puede doler… apesar de eso sigues adelante con una fortaleza que me inspira. Resistes, luchas, te levantas cada día y sigues dando lo mejor de ti. Eso, amor, es algo que valoro y respeto muchísimo.
+
+Te admiro no solo por lo que muestras al mundo, sino por esa fuerza silenciosa que llevas dentro. Para mí eres increíble, eres valiente, y muy capaz de todo y lo más bello de todo, eres luz que ilumina mi camino :3.
+
+Y aunque sabes que a veces puedo equivocarme, quiero que tengas claro que jamás es con la intención de lastimarte. Si fallo, no es por falta de amor, porque lo que siento por ti es verdadero. Tú mereces el mejor trato, el mayor respeto y el cariño más sincero. Con tu forma tan hermosa de ser, con tu ternura y tu corazón tan grande, a veces pienso que eres un ángel que llegó a mi vida para cambiarla y hacerla mejor.
+
+Sueño con que nuestro amor dure por siempre. Sueño con una vida juntos, con construir un hogar, una familia, con salir adelante tomados de la mano. Imagino una casa llena de paz, lejos de los problemas que durante años nos han intentado afectar, como buscan perjudicarnos la vida. Imagino un futuro mejor, construido con nuestro esfuerzo, amor y compromiso.
+
+Me hace feliz estar un año más contigo. Gracias por permitirme compartir tu vida. Que Dios te bendiga hoy y siempre, mi amor.
+
+Feliz San Valentín, Te amo más de lo que las palabras pueden explicar, rawr uwu.
+</p>
+
+<button onclick="nextPage()">Siguiente</button>
+
+</div>
+
+<!-- PAGINA 4 GALERIA -->
+
+<div class="page">
+
+<h1>Nuestros recuerdos :3 📸</h1>
+
+<p style="text-align:center;">
+Ohhh algunas capturas asi bien hermosas que tome uwu 💞❗
+</p>
+
+<div class="gallery">
+
+<img src="fotos/foto1.png">
+<img src="fotos/foto2.png">
+<img src="fotos/foto3.png">
+<img src="fotos/foto4.png">
+<img src="fotos/foto5.png">
+<img src="fotos/foto6.png">
+<img src="fotos/foto7.png">
+<img src="fotos/foto8.png">
+
+</div>
+
+<button onclick="nextPage()">Siguiente</button>
+
+</div>
+
+<!-- PAGINA 5 -->
+
+<div class="page">
+
+<h1>Tiempo desde que nos hicimos pareja💕⏳</h1>
+
+<p style="text-align:center;">Desde el 23 de mayo del 2025 a las 6:00 PM</p>
+
+<div class="counter" id="counter">
+Cargando...
+</div>
+
+<button onclick="restart()">
+Volver al inicio
+</button>
+
+</div>
+
+
+<script>
+
+let currentPage=0;
+let pages=document.querySelectorAll(".page");
+
+let hearts=[];
+let flowers=[];
+
+function playMusic(){
+document.getElementById("music").play();
+}
+
+function nextPage(){
+
+pages[currentPage].classList.remove("active");
+
+currentPage++;
+
+pages[currentPage].classList.add("active");
+
+if(currentPage>=3){
+
+removeHearts();
+createFlowers();
+
+}
+
+}
+
+function restart(){
+
+pages[currentPage].classList.remove("active");
+
+currentPage=0;
+
+pages[currentPage].classList.add("active");
+
+removeFlowers();
+createHearts();
+
+}
+
+function createHearts(){
+
+for(let i=0;i<60;i++){
+
+let img=document.createElement("img");
+
+img.src="corazon.png";
+
+img.className="heart";
+
+let size=Math.random()*77+20;
+
+img.style.width=size+"px";
+
+img.style.left=Math.random()*100+"vw";
+
+img.style.animationDuration=(Math.random()*2+2)+"s";
+
+img.style.opacity=Math.random();
+
+document.body.appendChild(img);
+
+hearts.push(img);
+
+}
+
+}
+
+function removeHearts(){
+
+hearts.forEach(h=>h.remove());
+
+hearts=[];
+
+}
+
+function createFlowers(){
+
+for(let i=0;i<40;i++){
+
+let img=document.createElement("img");
+
+img.src="margarita.png";
+
+img.className="flower";
+
+let size=Math.random()*75+30;
+
+img.style.width=size+"px";
+
+img.style.left=Math.random()*100+"vw";
+
+img.style.animationDuration=(Math.random()*3+3)+"s";
+
+img.style.opacity=Math.random();
+
+document.body.appendChild(img);
+
+flowers.push(img);
+
+}
+
+}
+
+function removeFlowers(){
+
+flowers.forEach(f=>f.remove());
+
+flowers=[];
+
+}
+
+function updateCounter(){
+
+let startDate=new Date("2025-05-23T18:00:00");
+
+let now=new Date();
+
+let diff=now-startDate;
+
+let days=Math.floor(diff/(1000*60*60*24));
+
+let hours=Math.floor((diff/(1000*60*60))%24);
+
+let minutes=Math.floor((diff/(1000*60))%60);
+
+document.getElementById("counter").innerText=
+
+"💖>Llevamos juntos: "+
+
+days+" Días "+
+
+hours+" Horas "+
+
+minutes+" Minutos<💖";
+
+}
+
+setInterval(updateCounter,1000);
+
+updateCounter();
+
+createHearts();
+
+</script>
+
+</body>
+</html>
