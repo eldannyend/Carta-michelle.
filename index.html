@@ -1,10 +1,8 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
-<!-- viewport optimizado para celular SIN romper PC -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>Para Michelle 💖</title>
 
@@ -18,23 +16,12 @@ box-sizing:border-box;
 
 html,body{
 height:100%;
-width:100%;
 overflow:hidden;
 }
 
 body{
 font-family: Arial, sans-serif;
 background: radial-gradient(circle at center, #ffd6ec 0%, #ff9ecb 50%, #ff85c2 100%);
-overflow:hidden;
-position:relative;
-}
-
-/* CONTENEDOR GENERAL */
-body::after{
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
 }
 
 /* PAGINAS */
@@ -45,75 +32,63 @@ width:100%;
 height:100%;
 left:100%;
 top:0;
-
 display:flex;
 flex-direction:column;
-justify-content:center;
 align-items:center;
-
-text-align:center;
-
-transition:0.6s ease;
-
+transition:0.8s;
 padding:20px;
-
 overflow-y:auto;
 overflow-x:hidden;
-
 }
 
-/* pagina visible */
 .page.active{
 left:0;
 }
 
-/* ocultar completamente las otras */
-.page:not(.active){
-pointer-events:none;
+/* CENTRAR SOLO PAGINA 1 Y ULTIMA */
+
+.page.centered{
+justify-content:center;
+text-align:center;
+}
+
+/* TITULOS */
+
+h1{
+font-family: Arial, sans-serif;
+font-size:42px;
+color:#c71585;
+margin-bottom:15px;
+text-align:center;
 }
 
 /* TEXTOS */
 
-h1{
-font-family: 'Great Vibes', cursive;
-font-size:60px;
-color:#c71585;
-margin-bottom:10px;
-text-shadow:0 0 10px rgba(255,255,255,0.5);
-
-max-width:90%;
-word-wrap:break-word;
-}
-
 p{
-font-family: 'Poppins', sans-serif;
-font-size:20px;
+font-family: Arial, sans-serif;
+font-size:19px;
 color:#5a0033;
-
 max-width:700px;
 width:90%;
-
 margin-top:15px;
-
 line-height:1.8;
-
 background:rgba(255,255,255,0.25);
-
 padding:20px;
-
 border-radius:15px;
-
 backdrop-filter:blur(5px);
+text-align:left;
+}
 
-word-wrap:break-word;
-overflow-wrap:break-word;
+/* PAGINA 1 TEXTO CENTRADO */
+
+.page.centered p{
+text-align:center;
 }
 
 /* BOTON */
 
 button{
-
-font-family:'Poppins',sans-serif;
+font-family: Arial, sans-serif;
 margin-top:25px;
 padding:12px 28px;
 border:none;
@@ -124,7 +99,7 @@ font-size:17px;
 cursor:pointer;
 box-shadow:0 5px 15px rgba(0,0,0,0.2);
 transition:0.3s;
-
+margin-bottom:30px;
 }
 
 button:hover{
@@ -134,10 +109,9 @@ transform:scale(1.05);
 /* CORAZONES */
 
 .heart{
-position:fixed;
+position:absolute;
 pointer-events:none;
 animation:floatUp linear infinite;
-z-index:0;
 }
 
 @keyframes floatUp{
@@ -148,10 +122,9 @@ to{ transform:translateY(-10vh); }
 /* MARGARITAS */
 
 .flower{
-position:fixed;
+position:absolute;
 pointer-events:none;
 animation:fall linear infinite;
-z-index:0;
 }
 
 @keyframes fall{
@@ -162,28 +135,22 @@ to{ transform:translateY(110vh) rotate(360deg); }
 /* NUBE */
 
 .cloud{
-position:fixed;
+position:absolute;
 top:5%;
 left:5%;
-width:190px;
+width:180px;
 animation:floatCloud 4s ease-in-out infinite;
-opacity:0.9;
-pointer-events:none;
 }
 
 /* RAMO */
 
 .bouquet{
-position:fixed;
+position:absolute;
 bottom:5%;
 right:5%;
-width:220px;
+width:240px;
 animation:floatBouquet 5s ease-in-out infinite;
-opacity:0.95;
-pointer-events:none;
 }
-
-/* ANIMACIONES */
 
 @keyframes floatCloud{
 0%{ transform:translateY(0px); }
@@ -202,59 +169,29 @@ pointer-events:none;
 .gallery{
 display:flex;
 flex-wrap:wrap;
-gap:15px;
+gap:12px;
 justify-content:center;
 margin-top:20px;
 max-width:900px;
-width:100%;
+padding-bottom:20px;
 }
 
 .gallery img{
-
 width:150px;
 height:150px;
-
 object-fit:cover;
-
 border-radius:15px;
-
 box-shadow:0 0 15px rgba(0,0,0,0.3);
-
 }
 
 /* CONTADOR */
 
 .counter{
-font-size:28px;
+font-size:26px;
 margin-top:20px;
 color:#c71585;
-}
-
-/* RESPONSIVE SOLO PARA CELULAR */
-@media (max-width:600px){
-
-h1{
-font-size:34px;
-}
-
-p{
-font-size:16px;
-padding:15px;
-}
-
-.gallery img{
-width:42vw;
-height:42vw;
-}
-
-.cloud{
-width:120px;
-}
-
-.bouquet{
-width:140px;
-}
-
+margin-bottom:20px;
+text-align:center;
 }
 
 </style>
@@ -268,11 +205,13 @@ width:140px;
 <img src="nube.png" class="cloud">
 <img src="ramo.png" class="bouquet">
 
-<div class="page active">
+<!-- PAGINA 1 -->
+
+<div class="page active centered">
 
 <h1>💕 HELLO MICHELLE 💕</h1>
 
-<p style="text-align:center;">
+<p>
 Esta es una pequeña carta que le hice con mucho amor
 para que sepas lo importante y valiosa que eres para mi.💌
 <br><br>
@@ -285,27 +224,56 @@ Siguiente
 
 </div>
 
+<!-- PAGINA 2 (TEXTO COMPLETO ORIGINAL) -->
+
 <div class="page">
 
 <h1>DIRIGIDO HACIA USTED CON CARIÑO📌</h1>
 
 <p>
-Michelle… qué mejor momento que este para aprovechar y decirte todo lo que llevo guardado en el corazón...
+Michelle… qué mejor momento que este para aprovechar y decirte todo lo que llevo guardado en el corazón. Gracias, amor, gracias por cada instante en el que me has regalado alegría, por cada risa compartida, por esos momentos divertidos que se quedan grabados en mi memoria y que me recuerdan lo afortunado que soy de tenerte a mi lado.
+
+<br><br>
+
+Gracias por acompañarme incluso en los días difíciles, por brindarme tu apoyo sincero y por entregarme tu cariño con un corazón tan noble. Estar contigo me hace profundamente feliz cariño :3. De verdad, no imaginas cuánto agradezco a la vida por haberte puesto en mi camino.
+
+<br><br>
+
+Eres una mujer preciosa, no solo por tu belleza, sino por tu forma tan especial de ser. Eres carismática, una mujer responsable, inteligente, dulce, auténtica y asi muchas otras cositas bonitas que trae un ser tan bonito como usted… tienes esa capacidad de agradar y de iluminar los espacios con tu presencia. Con el paso del tiempo, en lugar de disminuir, mis sentimientos por ti crecen y se fortalecen. Cada día estoy más seguro de lo perfecta que eres y lo mucho que me encantas michelle 💕.
+
+<br><br>
+
+Nunca he tenido dudas sobre lo que siento por ti, nunca me voy a sentir arrepentido de haber iniciado una relación contigo. Para mis ojos no existe nadie que se compare con lo que eres. Eres única, irrepetible, y tienes un lugar en mi corazón que nadie más podrá ocupar jamás. (Kiss kiss :3)
 </p>
 
 <button onclick="nextPage()">Siguiente</button>
 
 </div>
+
+<!-- PAGINA 3 (TEXTO COMPLETO ORIGINAL) -->
 
 <div class="page">
 
 <p>
-Te Admiro profundamente mami...
+Te Admiro profundamente mami. Sé que cargas muchas cosas sobre tus hombros, dificultades que no siempre son fáciles de llevar. Las enfermedades, los problemas, las preocupaciones, los traumas, y esas perdidas que es lo que mas puede doler… apesar de eso sigues adelante con una fortaleza que me inspira. Resistes, luchas, te levantas cada día y sigues dando lo mejor de ti. Eso, amor, es algo que valoro y respeto muchísimo.
+
+Te admiro no solo por lo que muestras al mundo, sino por esa fuerza silenciosa que llevas dentro. Para mí eres increíble, eres valiente, y muy capaz de todo y lo más bello de todo, eres luz que ilumina mi camino :3.
+
+<br><br>
+Y aunque sabes que a veces puedo equivocarme, quiero que tengas claro que jamás es con la intención de lastimarte. Si fallo, no es por falta de amor, porque lo que siento por ti es verdadero. Tú mereces el mejor trato, el mayor respeto y el cariño más sincero. Con tu forma tan hermosa de ser, con tu ternura y tu corazón tan grande, a veces pienso que eres un ángel que llegó a mi vida para cambiarla y hacerla mejor.
+
+Sueño con que nuestro amor dure por siempre. Sueño con una vida juntos, con construir un hogar, una familia, con salir adelante tomados de la mano. Imagino una casa llena de paz, lejos de los problemas que durante años nos han intentado afectar, como buscan perjudicarnos la vida. Imagino un futuro mejor, construido con nuestro esfuerzo, amor y compromiso.
+<br><br>
+Me hace feliz estar un año más contigo. Gracias por permitirme compartir tu vida. Que Dios te bendiga hoy y siempre, mi amor.
+
+Feliz San Valentín, Te amo más de lo que las palabras pueden explicar, rawr uwu.
 </p>
 
 <button onclick="nextPage()">Siguiente</button>
 
 </div>
+
+<!-- GALERIA -->
 
 <div class="page">
 
@@ -316,7 +284,6 @@ Ohhh algunas capturas asi bien hermosas que tome uwu 💞❗
 </p>
 
 <div class="gallery">
-
 <img src="fotos/foto1.png">
 <img src="fotos/foto2.png">
 <img src="fotos/foto3.png">
@@ -325,14 +292,15 @@ Ohhh algunas capturas asi bien hermosas que tome uwu 💞❗
 <img src="fotos/foto6.png">
 <img src="fotos/foto7.png">
 <img src="fotos/foto8.png">
-
 </div>
 
 <button onclick="nextPage()">Siguiente</button>
 
 </div>
 
-<div class="page">
+<!-- CONTADOR -->
+
+<div class="page centered">
 
 <h1>Tiempo desde que nos hicimos pareja💕⏳</h1>
 
@@ -342,9 +310,7 @@ Ohhh algunas capturas asi bien hermosas que tome uwu 💞❗
 Cargando...
 </div>
 
-<button onclick="restart()">
-Volver al inicio
-</button>
+<button onclick="restart()">Volver al inicio</button>
 
 </div>
 
@@ -361,119 +327,69 @@ document.getElementById("music").play();
 }
 
 function nextPage(){
-
 pages[currentPage].classList.remove("active");
-
 currentPage++;
-
 pages[currentPage].classList.add("active");
 
 if(currentPage>=3){
-
 removeHearts();
 createFlowers();
-
 }
-
 }
 
 function restart(){
-
 pages[currentPage].classList.remove("active");
-
 currentPage=0;
-
 pages[currentPage].classList.add("active");
-
 removeFlowers();
 createHearts();
-
 }
 
 function createHearts(){
-
 for(let i=0;i<60;i++){
-
 let img=document.createElement("img");
-
 img.src="corazon.png";
-
 img.className="heart";
-
-let size=Math.random()*77+20;
-
+let size=Math.random()*60+20;
 img.style.width=size+"px";
-
 img.style.left=Math.random()*100+"vw";
-
 img.style.animationDuration=(Math.random()*2+2)+"s";
-
-img.style.opacity=Math.random();
-
 document.body.appendChild(img);
-
 hearts.push(img);
-
 }
-
 }
 
 function removeHearts(){
-
 hearts.forEach(h=>h.remove());
-
 hearts=[];
-
 }
 
 function createFlowers(){
-
 for(let i=0;i<40;i++){
-
 let img=document.createElement("img");
-
 img.src="margarita.png";
-
 img.className="flower";
-
-let size=Math.random()*75+30;
-
+let size=Math.random()*60+30;
 img.style.width=size+"px";
-
 img.style.left=Math.random()*100+"vw";
-
 img.style.animationDuration=(Math.random()*3+3)+"s";
-
-img.style.opacity=Math.random();
-
 document.body.appendChild(img);
-
 flowers.push(img);
-
 }
-
 }
 
 function removeFlowers(){
-
 flowers.forEach(f=>f.remove());
-
 flowers=[];
-
 }
 
 function updateCounter(){
-
 let startDate=new Date("2025-05-23T18:00:00");
-
 let now=new Date();
-
 let diff=now-startDate;
 
 let days=Math.floor(diff/(1000*60*60*24));
-
 let hours=Math.floor((diff/(1000*60*60))%24);
-
 let minutes=Math.floor((diff/(1000*60))%60);
 
 document.getElementById("counter").innerText=
@@ -481,13 +397,10 @@ document.getElementById("counter").innerText=
 days+" Días "+
 hours+" Horas "+
 minutes+" Minutos<💖";
-
 }
 
 setInterval(updateCounter,1000);
-
 updateCounter();
-
 createHearts();
 
 </script>
